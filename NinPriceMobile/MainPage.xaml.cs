@@ -43,11 +43,11 @@ namespace NinPriceMobile
 
             activity.IsVisible = false;
             gameListView.IsVisible = true;
+        }
 
-            //mainScroll.ScrollToAsync(listView.GetChildElements(0), ScrollToPosition.Start, false);
-            //listView.ScrollTo(gameObjects.FirstOrDefault(), ScrollToPosition.End, false);
-
-            //TestLabel.Text = gameList.FirstOrDefault().Sorting_Title;
+        void Handle_Activated(object sender, System.EventArgs e)
+        {
+            DisplayAlert("NinPrice Mobile 0.1b", "Приложение для просмотра текущих скидок на игры Nintendo Switch (RU регион)\n\nby RocketStorm © 2018\nhttp://rocketstorm.me\nneocreystudios@gmail.com", "OK");
         }
     }
 }

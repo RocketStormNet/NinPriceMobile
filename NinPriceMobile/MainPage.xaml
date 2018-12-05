@@ -4,9 +4,9 @@
              xmlns:forms="clr-namespace:Xamarin.Forms"
              xmlns:local="clr-namespace:NinPriceMobile" 
              x:Class="NinPriceMobile.MainPage"
-             Title="NinPrice">
+             Title="NinPrice Mobile">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Order="Primary" Text="?" Priority="0" />
+        <ToolbarItem Name="MenuItem1" Icon="question.png" Order="Primary" Text="?" Priority="0" Activated="Handle_Activated"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
@@ -15,18 +15,24 @@
                    IsRunning="true"  
                    IsEnabled="true"  
                    IsVisible="true"  
-                   Color="Blue"  
-                   BackgroundColor="Transparent"/>
+                   Color="#00b0ff"  
+                   BackgroundColor="Transparent"
+                   Margin="0, 16, 0, 0"/>
+                <Label Text="Загружаем скидки..."
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Start"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   TextColor="#00b0ff" />
             </StackLayout>
             <StackLayout x:Name="gameListView" IsVisible="false">
-                <!--<Label Text="Welcome to Xamarin.Forms!" x:Name="TestLabel" />-->
                 <ListView  x:Name="listView" HasUnevenRows="true">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout BackgroundColor="#eee"
                                 Orientation="Vertical">
-                                    <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Horizontal" Padding="5">
                                         <Image Source="{Binding Image_Url}" HeightRequest="64" WidthRequest="64" />
                                         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                                             <Label Text="{Binding Sorting_Title}" HorizontalOptions="FillAndExpand"
@@ -35,14 +41,14 @@
                                             <Label Text="{Binding price_lowest_f, StringFormat=\{\0\} RUB.}"
                                                 HorizontalOptions="FillAndExpand"
                                                 HorizontalTextAlignment="Start"
-                                                FontSize="Large"
+                                                FontSize="28"
                                                 FontAttributes="Bold"
-                                                TextColor="#503026" />
-                                            <Label Text="{Binding price_discount_percentage_f, StringFormat=(-\{\0\}%)}"
+                                                TextColor="#2e7d32" />
+                                            <Label Text="{Binding price_discount_percentage_f, StringFormat=-\{\0\}%}"
                                                 HorizontalOptions="FillAndExpand"
                                                 HorizontalTextAlignment="End"
-                                                FontSize="Medium"
-                                                TextColor="#503026" />
+                                                FontSize="Small"
+                                                TextColor="#43a047" />
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>
