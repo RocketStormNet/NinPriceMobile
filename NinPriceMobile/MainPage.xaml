@@ -1,7 +1,50 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:NinPriceMobile" x:Class="NinPriceMobile.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Xamarin.Forms"
+             xmlns:local="clr-namespace:NinPriceMobile" 
+             x:Class="NinPriceMobile.MainPage"
+             Title="NinPrice">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Text="?" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="activity">
+                <ActivityIndicator  
+                   IsRunning="true"  
+                   IsEnabled="true"  
+                   IsVisible="true"  
+                   Color="Blue"  
+                   BackgroundColor="Transparent"/>
+            </StackLayout>
+            <StackLayout x:Name="gameListView" IsVisible="false">
+                <!--<Label Text="Welcome to Xamarin.Forms!" x:Name="TestLabel" />-->
+                <ListView  x:Name="listView" HasUnevenRows="true">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout BackgroundColor="#eee"
+                                Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Image_Url}" HeightRequest="64" WidthRequest="64" />
+                                        <Label Text="{Binding Sorting_Title}" HorizontalOptions="CenterAndExpand"
+                                            TextColor="#f35e20" FontAttributes="Bold" FontSize="Large" />
+                                        <Label Text="{Binding price_lowest_f, StringFormat=\{\0\} RUB.}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            FontSize="Large"
+                                            TextColor="#503026" />
+                                        <Label Text="{Binding price_discount_percentage_f, StringFormat=(-\{\0\}%)}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            FontSize="Large"
+                                            TextColor="#503026" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
