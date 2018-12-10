@@ -7,6 +7,8 @@
              Title="NinPrice Mobile">
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="MenuItem1" Icon="question.png" Order="Primary" Text="?" Priority="0" Activated="Handle_Activated"/>
+        <ToolbarItem Name="ItemRu" Icon="ru.png" Order="Secondary" Text="RU" Priority="1" />
+        <ToolbarItem Name="ItemEn" Icon="us.png" Order="Secondary" Text="EN" Priority="1" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
